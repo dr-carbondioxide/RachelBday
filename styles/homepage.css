@@ -1,0 +1,422 @@
+:root {
+    --bg-color: #0F0000;        /* Espresso */
+    --mahogany: #440000;        /* Red Mahogany */
+    --crimson: #6E1313;         /* Crimson Tide */
+    --rose-quartz: #F4B3B3;     /* Rose Quartz */
+    --blue-lagoon: #002028;     /* Blue Lagoon */
+    
+    --text-light: #F4B3B3;
+    --text-dark: #0F0000;
+    --border: rgba(110, 19, 19, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    overflow-x: hidden;
+    letter-spacing: 0.4px;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeIn 1.2s ease-out;
+    z-index: 2;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--rose-quartz) 30%, var(--crimson));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--rose-quartz);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* Background Side Polaroids General Layout */
+.side-polaroid {
+    position: absolute;
+    width: 140px;
+    height: 175px;
+    background: var(--rose-quartz);
+    opacity: 0.7; /* Much lighter ambient look */
+    border-radius: 3px;
+    padding: 7px 7px 28px 7px;
+    box-shadow: 0 10px 25px rgba(15, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Precise Staggered Positioning for Left and Right Margins */
+.side-left-1 { top: 40px; left: 35px; transform: rotate(-7deg); }
+.side-left-2 { top: 320px; left: 25px; transform: rotate(5deg); }
+.side-left-3 { top: 600px; left: 40px; transform: rotate(-4deg); }
+.side-left-4 { top: 880px; left: 20px; transform: rotate(6deg); }
+.side-left-5 { top: 1160px; left: 35px; transform: rotate(-5deg); }
+
+.side-right-6 { top: 60px; right: 35px; transform: rotate(6deg); }
+.side-right-7 { top: 340px; right: 25px; transform: rotate(-5deg); }
+.side-right-8 { top: 620px; right: 40px; transform: rotate(7deg); }
+.side-right-9 { top: 900px; right: 20px; transform: rotate(-6deg); }
+.side-right-10 { top: 1180px; right: 35px; transform: rotate(4deg); }
+
+.side-polaroid-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.side-photo {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Hover effect: Pop out, zoom in, full opacity, and crimson shine */
+.side-polaroid:hover {
+    opacity: 1;
+    transform: scale(1.15) rotate(0deg);
+    box-shadow: 0 0 30px var(--crimson), 0 20px 40px rgba(15, 0, 0, 0.9);
+    z-index: 10;
+}
+
+/* Main Greeting Card Container - Optimized dimensions to fit text cleanly without scrolling */
+.card-container {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 620px;
+    height: 740px;
+    margin-bottom: 70px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Enhanced Hover Effect for Main Greeting Card (Pops out more dramatically) */
+.card-container:hover .card {
+    transform: scale(1.06);
+    box-shadow: 0 0 40px var(--crimson), 0 25px 50px rgba(0, 0, 0, 0.8);
+}
+
+.card-container:hover .card.is-flipped {
+    transform: rotateY(180deg) scale(1.06);
+    box-shadow: 0 0 40px var(--crimson), 0 25px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Outer Vintage Rose Quartz Polaroid Frame */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: var(--rose-quartz);
+    border-radius: 4px;
+    padding: 22px 22px 75px 22px;
+    box-shadow: 0 20px 40px rgba(15, 0, 0, 0.8), inset 0 0 35px rgba(68, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Inner Photo Area holding background image and text */
+.polaroid-photo {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Front Card Face Image Overlay */
+.card-front .polaroid-photo {
+    background-image: linear-gradient(rgba(15, 0, 0, 0.82), rgba(68, 0, 0, 0.82)), url('../images/greetingcard.jpeg');
+}
+
+/* Back Card Face Image Overlay */
+.card-back .polaroid-photo {
+    background-image: linear-gradient(rgba(15, 0, 0, 0.86), rgba(68, 0, 0, 0.86)), url('../images/greetingcard.jpeg');
+}
+
+.polaroid-photo h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--rose-quartz);
+}
+
+.polaroid-photo p {
+    color: #f1d1d1;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+    word-spacing: 0.8px;
+}
+
+.flip-hint {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--rose-quartz);
+    opacity: 0.9;
+}
+
+/* Surprise Section */
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: var(--rose-quartz);
+    z-index: 2;
+}
+
+.surprise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 50px;
+    z-index: 2;
+}
+
+.flip-card {
+    perspective: 1000px;
+    width: 100%;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 0, 0, 0.5);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--crimson);
+}
+
+/* Surprise Card Fronts styled with Solid Espresso */
+.flip-card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.number-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--rose-quartz);
+    margin-bottom: 10px;
+}
+
+.flip-card-front span {
+    color: var(--rose-quartz);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Universal Hover Effect for All Surprise Cards */
+.flip-card:hover .flip-card-inner {
+    box-shadow: 0 0 25px var(--crimson);
+    transform: scale(1.02);
+}
+
+.flip-card.is-flipped:hover .flip-card-inner {
+    transform: rotateY(180deg) scale(1.02);
+}
+
+.special-back-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, var(--bg-color), transparent);
+    color: var(--rose-quartz);
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flip-card.is-flipped.special-card .special-back-overlay {
+    opacity: 1;
+}
+
+/* List Page & Footer */
+.list-container {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeIn 1.2s ease-out;
+    z-index: 2;
+}
+
+.list-item {
+    background: var(--mahogany);
+    border: 1px solid var(--crimson);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(15, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.list-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--rose-quartz);
+}
+
+<item-number>
+.item-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--rose-quartz);
+    font-weight: 600;
+    min-width: 40px;
+}
+
+.item-text {
+    color: var(--rose-quartz);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    word-spacing: 0.8px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: var(--rose-quartz);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+    opacity: 0.8;
+}
+
+.back-btn:hover {
+    color: var(--rose-quartz);
+    opacity: 1;
+}
+
+footer {
+    color: var(--rose-quartz);
+    font-size: 0.95rem;
+    margin-top: auto;
+    padding: 20px 0;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* Footer Link with Underline and Shine/Glow Effect on Hover */
+footer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px var(--rose-quartz), 0 0 20px var(--crimson);
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

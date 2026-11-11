@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to my one and only ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/homepage.css">
+</head>
+<body>
+
+    <!-- Ambient Background Side Polaroids (Left Side: 1 to 5) -->
+    <div class="side-polaroid side-left-1">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_0470.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-left-2">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_0570.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-left-3">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_5605.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-left-4">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_5853.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-left-5">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_6636.jpeg');"></div>
+        </div>
+    </div>
+
+    <!-- Ambient Background Side Polaroids (Right Side: 6 to 10) -->
+    <div class="side-polaroid side-right-6">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_6719.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-right-7">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_6783.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-right-8">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_6833.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-right-9">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_7402.jpeg');"></div>
+        </div>
+    </div>
+    <div class="side-polaroid side-right-10">
+        <div class="side-polaroid-inner">
+            <div class="side-photo" style="background-image: linear-gradient(rgba(15, 0, 0, 0.35), rgba(68, 0, 0, 0.75)), url('images/IMG_7451.jpeg');"></div>
+        </div>
+    </div>
+
+    <header>
+        <h1>HEYYY is that, Psycho Rachel?</h1>
+        <p>Happy Birthday Baby</p>
+    </header>
+
+    <!-- Main Interactive Greeting Card (Polaroid Style) -->
+    <div class="card-container" onclick="toggleMainCard()">
+        <div class="card" id="birthdayCard">
+            <!-- Front of Card (Polaroid Frame) -->
+            <div class="card-face card-front">
+                <div class="polaroid-photo">
+                    <h3>To My Favorite Person</h3>
+                    <p id="editable-card-text">Click here to open your birthday card....
+                        <br>Aren't I so smart in making a website?, bet youre wet af but we gotta keep this website PG</p>
+                    <span class="flip-hint"></span>
+                </div>
+            </div>
+            <!-- Back of Card (Polaroid Frame) -->
+            <div class="card-face card-back">
+                <div class="polaroid-photo">
+                    <h3>Wishing You The Best</h3>
+                    <p id="editable-card-back">Happy Birthday Baby, I am so happy you were born and that I’ve been able to find great companionship with you. You are actually the wildest and most fun person I have ever been with and will ever want to be with. I’ve missed all your bdays till now and I don’t plan to miss the next ones. I tried to make it as special as I could with this distance because you’re truly amazing and you deserve every ounce of the effort I put in to show you that I love you. You are a very special person, like mentally yeah sure SPECIAL CHILD but you are special to me and it’s just this aura you carry that I have not been able to forget for the past 2 years. You live fresh in my mind and I know it’ll always be like this and so to that - Many Many Happy Returns of The Day. Hope you like your surprises.</p>
+                    <span class="flip-hint"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">*CUE THE DRUM ROLL* <br>Surprise</h2>
+
+    <!-- 3 Numbered Interactive Photo Flip Cards -->
+    <div class="surprise-grid">
+        <!-- Surprise Card 1: Blue Saree -->
+        <div class="flip-card" onclick="toggleSurprise(this)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="number-badge">1</div>
+                    <span>Click to reveal</span>
+                </div>
+                <div class="flip-card-back">
+                    <img src="images/blue saree.png" alt="Blue Saree">
+                </div>
+            </div>
+        </div>
+
+        <!-- Surprise Card 2: Orange Saree -->
+        <div class="flip-card" onclick="toggleSurprise(this)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="number-badge">2</div>
+                    <span>Click to reveal</span>
+                </div>
+                <div class="flip-card-back">
+                    <img src="images/orange saree.png" alt="Orange Saree">
+                </div>
+            </div>
+        </div>
+
+        <!-- Surprise Card 3: Special Shining Card with Click Logic -->
+        <div class="flip-card special-card" onclick="handleSpecialCard(event, this)">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="number-badge">3</div>
+                    <span>Click to reveal ✨</span>
+                </div>
+                <div class="flip-card-back">
+                    <img src="images/surprise 3.jpeg" alt="Surprise 3">
+                    <div class="special-back-overlay">TRY CLICKING ON MY NOSE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" style="color: inherit; text-decoration: none;">Made with love for Rachel</a>
+    </footer>
+
+    <script>
+        function toggleMainCard() {
+            const card = document.getElementById('birthdayCard');
+            card.classList.toggle('is-flipped');
+        }
+
+        function toggleSurprise(cardElement) {
+            cardElement.classList.toggle('is-flipped');
+        }
+
+        // Special behavior for card 3:
+        // 1st click: flips open to show the photo.
+        // 2nd click while open: opens the new tab (21things.html).
+        // 3rd click while open: flips the card back to the front.
+        let card3Clicks = 0;
+        function handleSpecialCard(event, cardElement) {
+            const isFlipped = cardElement.classList.contains('is-flipped');
+            
+            if (!isFlipped) {
+                cardElement.classList.add('is-flipped');
+                card3Clicks = 1;
+            } else {
+                card3Clicks++;
+                if (card3Clicks === 2) {
+                    window.open('21things.html', '_blank');
+                } else {
+                    cardElement.classList.remove('is-flipped');
+                    card3Clicks = 1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
