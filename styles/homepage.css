@@ -357,8 +357,6 @@ header p {
     transform: translateY(-2px);
     border-color: var(--rose-quartz);
 }
-
-<item-number>
 .item-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.8rem;
